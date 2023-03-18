@@ -1,0 +1,14 @@
+.mobile-recharge__label {
+	margin: 20px 0 12px;
+}
+
+.mobile-recharge button {
+	display: block;
+	margin: 20px auto 0;
+	background-color: #198754;
+	border: none;
+}
+
+.mobile-recharge button:hover {
+	background-color: #146c43;
+}

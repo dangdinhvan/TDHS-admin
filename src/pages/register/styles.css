@@ -1,0 +1,27 @@
+.register {
+	max-width: 400px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.register button {
+	margin-top: 20px;
+	width: 100%;
+	background-color: #ea7127;
+	border: none;
+	padding: 10px;
+	font-weight: 600;
+}
+
+.register button:disabled {
+	background-color: #ea7127 !important;
+	opacity: 0.3 !important;
+	cursor:not-allowed !important;
+	border: none;
+}
+
+.register button:hover {
+	background-color: rgb(214, 96, 0);
+}

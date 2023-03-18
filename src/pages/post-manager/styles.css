@@ -1,0 +1,13 @@
+.post-manager h3 {
+	text-align: center;
+}
+
+.post-manager__create {
+	margin: 32px 0;
+}
+
+.post-manager__content {
+	overflow: hidden;
+	width: 80%;
+	word-break: break-all;
+}

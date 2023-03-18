@@ -1,0 +1,10 @@
+.item-editor__image-wrapper {
+	display: flex;
+	align-items: center;
+}
+
+.item-editor__image-wrapper img {
+	width: 100px;
+	height: 100px;
+	margin-right: 20px;
+}

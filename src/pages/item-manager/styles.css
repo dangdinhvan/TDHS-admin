@@ -1,0 +1,31 @@
+.item-manager__action-item {
+	cursor: pointer;
+}
+
+.item-manager__action-item.edit {
+	color: rgb(62, 82, 255);
+}
+
+.item-manager__action-item.delete {
+	color: red;
+}
+
+.item-manager__action-item:hover {
+	text-decoration: underline;
+}
+
+.item-image {
+	width: 60px;
+	height: 60px;
+}
+
+.item-manager__modal__button {
+	display: flex;
+	gap: 16px;
+	margin: 30px auto 0;
+	width: fit-content;
+}
+
+.item-manager__modal__button button{
+	padding: 6px 28px;
+}

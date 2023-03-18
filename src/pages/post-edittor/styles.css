@@ -1,0 +1,18 @@
+.richtext-editor {
+	border: #c4c4c4 1px solid;
+	padding: 12px;
+	border-radius: 4px;
+}
+
+.post-editor__upload-image {
+	width: fit-content;
+}
+
+.post-editor__create-post {
+	margin: 24px auto;
+	display: block !important;
+}
+
+.post-editor .public-DraftEditor-content {
+	min-height: 200px;
+}

@@ -1,0 +1,16 @@
+.home h3 {
+	margin: 32px 0;
+	font-weight: 700;
+}
+
+.home img {
+	width: 100%;
+}
+
+.home p {
+	margin: 0;
+}
+
+.home {
+	line-height: 2 !important;
+}

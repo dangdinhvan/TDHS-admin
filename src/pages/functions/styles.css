@@ -1,0 +1,50 @@
+.recharge {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	align-items: center;
+}
+
+.recharge__main {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	justify-content: center;
+	align-items: center;
+}
+
+.recharge__item {
+	max-width: 300px;
+	word-wrap: break-word;
+	background-color: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.125);
+	border-radius: 0.25rem;
+}
+
+.recharge__item img {
+	aspect-ratio: 1.78;
+}
+
+.recharge__item__text {
+	padding: 8px;
+}
+
+.recharge__item__title {
+	font-size: 16px;
+	font-weight: 700;
+}
+
+.recharge__item__description {
+	margin-top: 12px;
+	font-size: 13px;
+	line-height: 20px;
+}
+
+.recharge__item__text button {
+	color: #fff;
+	background-color: orange;
+	border: none;
+	border-radius: 4px;
+	padding: 6px 12px;
+	margin: 10px auto 0;
+}

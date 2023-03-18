@@ -1,0 +1,42 @@
+.webshop h3 {
+	text-align: center;
+	margin-bottom: 32px;
+}
+
+.webshop__top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 16px;
+}
+
+.webshop__search {
+	max-width: 250px;
+}
+
+.webshop__select {
+	width: fit-content !important;
+}
+
+.webshop__buy-item {
+	color: rgb(68, 68, 255);
+	cursor: pointer;
+}
+
+.webshop__buy-item:hover {
+	text-decoration: underline;
+}
+
+.webshop__modal__title {
+	margin: 20px 0 8px;
+}
+
+.webshop__modal__buy-button {
+	margin-top: 20px;
+	width: 100%;
+}
+
+.webshop__alert p {
+	color: red;
+	font-weight: 600;
+}
