@@ -38,7 +38,7 @@ export default function UserDetail() {
 		};
 
 		axios
-			.post(`${BASE_URL}v1/webshops/buyMoneyInGame`, data, {
+			.post(`${BASE_URL}/v1/webshops/buyMoneyInGame`, data, {
 				headers: { 'Authorization': `Bearer ${accessToken}` },
 			})
 			.then(() => toast.success('Trao đổi thành công'))
