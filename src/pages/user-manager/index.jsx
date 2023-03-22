@@ -77,6 +77,7 @@ export default function UserManager() {
 
 	const handleSetAdmin = user => {
 		const data = { role: 'admin' };
+		setLoadingTrade(true);
 		axios
 			.patch(`${BASE_URL}/v1/users/${user.id}`, data, {
 				headers: { 'Authorization': `Bearer ${accessToken}` },
@@ -139,9 +140,9 @@ export default function UserManager() {
 							<tr>
 								<th style={{ textAlign: 'center' }}>#</th>
 								<th>Tên người dùng</th>
-								<th style={{ textAlign: 'center' }}>Player 1</th>
-								<th style={{ textAlign: 'center' }}>Player 2</th>
-								<th style={{ textAlign: 'center' }}>Player 3</th>
+								<th style={{ textAlign: 'center' }}>Nhân vật 1</th>
+								<th style={{ textAlign: 'center' }}>Nhân vật 2</th>
+								<th style={{ textAlign: 'center' }}>Nhân vật 3</th>
 								<th style={{ textAlign: 'center' }}>Số coin</th>
 								<th style={{ textAlign: 'center' }}>Vai trò</th>
 								<th style={{ textAlign: 'center' }}>Trạng thái</th>

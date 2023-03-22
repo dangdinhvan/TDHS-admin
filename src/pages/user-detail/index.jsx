@@ -22,11 +22,7 @@ export default function UserDetail() {
 	const accessToken = localStorage.getItem('accessToken');
 
 	const caculateTradeResult = () => {
-		if (tradeType === 'vang') {
-			return coinInputValue * 5000;
-		} else {
-			return coinInputValue * 0.5;
-		}
+		return tradeType === 'vang' ? coinInputValue * 5000 : coinInputValue * 0.5;
 	};
 
 	const handleTrade = () => {
@@ -34,14 +30,17 @@ export default function UserDetail() {
 		const data = {
 			'type': tradeType,
 			'player': playerForBuy,
-			'value': coinInputValue,
+			'value': parseInt(caculateTradeResult()),
 		};
 
 		axios
 			.post(`${BASE_URL}/v1/webshops/buyMoneyInGame`, data, {
 				headers: { 'Authorization': `Bearer ${accessToken}` },
 			})
-			.then(() => toast.success('Trao đổi thành công'))
+			.then(() => {
+				toast.success('Trao đổi thành công');
+				setShowModalTrade(false);
+			})
 			.catch(() => {
 				toast.error('Trao đổi thất bại');
 			})
@@ -66,7 +65,7 @@ export default function UserDetail() {
 							Lịch sử giao dịch
 						</Button>
 						<Button variant='primary' onClick={() => setShowModalTrade(true)}>
-							Đổi vàng hoặc ngọc
+							Đổi vàng hoặc kim cương
 						</Button>
 					</div>
 					<hr></hr>
@@ -80,14 +79,14 @@ export default function UserDetail() {
 			</Card>
 			<Modal show={showModalTrade} onHide={() => setShowModalTrade(false)} centered>
 				<Modal.Body>
-					<h5 style={{ textAlign: 'center' }}>Đổi vàng hoặc ngọc</h5>
+					<h5 style={{ textAlign: 'center' }}>Đổi vàng hoặc kim cương</h5>
 					<hr />
 					<p style={{ color: 'red', fontWeight: '600' }}>
 						CHÚ Ý: Để thực hiện chức năng này, tài khoản của bạn cần ĐĂNG XUẤT khỏi game
 					</p>
 					<Form.Select onChange={e => setTradeType(e.target.value)}>
 						<option value='vang'>Vàng</option>
-						<option value='kim cương'>Ngọc</option>
+						<option value='kimcuong'>Kim Cương</option>
 					</Form.Select>
 					<div className='webshop__modal__title'>Áp dụng cho nhân vật</div>
 					<Form.Select onChange={e => setPlayerForBuy(e.target.value)}>
@@ -104,7 +103,7 @@ export default function UserDetail() {
 						onChange={e => setCoinInputValue(e.target.value)}
 					/>
 					<div className='webshop__modal__title'>
-						Số lượng {tradeType === 'vang' ? 'vàng' : 'ngọc'} nhận được
+						Số lượng {tradeType === 'vang' ? 'vàng' : 'kim cương'} nhận được
 					</div>
 					<Form.Control type='number' value={caculateTradeResult()} disabled />
 					<div className='user-detail__trade__buttons'>

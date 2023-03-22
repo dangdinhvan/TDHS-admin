@@ -72,7 +72,7 @@ export default function MobileRecharge() {
 			<hr />
 			<p style={{ color: 'red', fontWeight: '700' }}>Lưu ý:</p>
 			<p>(*) Chọn đúng giá trị thẻ, đúng số seri, mã thẻ</p>
-			<p>(**) Những thẻ bị điền sai thông tin chúng tôi sẽ không chịu trách nhiệm và không bồi thường.</p>
+			<p>(**) Những thẻ hoặc nội dung chuyển bị điền sai thông tin chúng tôi sẽ không chịu trách nhiệm và không bồi thường.</p>
 		</div>
 	);
 }

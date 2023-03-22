@@ -81,7 +81,10 @@ export default function PostEditor() {
 		const data = { content: content, title: postTitle };
 		axios
 			.post(`${BASE_URL}/v1/posts`, data, { headers: { 'Authorization': `Bearer ${accessToken}` } })
-			.then(response => toast.success('Tạo bài viết thành công'))
+			.then(response => {
+				toast.success('Tạo bài viết thành công');
+				setEditorState(EditorState.createEmpty());
+			})
 			.catch(() => {
 				toast.error('Tạo bài viết thất bại');
 			});
