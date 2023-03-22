@@ -42,7 +42,7 @@ export default function MobileRecharge() {
 	return (
 		<div className='mobile-recharge'>
 			{loading && <div className='mobile-recharge__loading'>Đang xử lý...</div>}
-			<h3 style={{ textAlign: 'center' }}>Nạp ngọc bằng thẻ điện thoại</h3>
+			<h3 style={{ textAlign: 'center' }}>Nạp coin bằng thẻ điện thoại</h3>
 			<div className='mobile-recharge__label'>Nhà mạng:</div>
 			<Form.Select onChange={e => setTelco(e.target.value)}>
 				<option>----- Chọn nhà mạng -----</option>

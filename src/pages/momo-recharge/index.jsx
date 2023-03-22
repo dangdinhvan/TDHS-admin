@@ -12,7 +12,7 @@ const userInfo = useSelector(state => state.auth.userInfo);
 				<thead>
 					<tr>
 						<td colSpan={2} style={{ fontWeight: '700', textAlign: 'center' }}>
-							{isMomo ? 'Nạp ngọc qua momo' : 'Nạp ngọc qua internet banking'}
+							{isMomo ? 'Nạp coin qua momo' : 'Nạp coin qua internet banking'}
 						</td>
 					</tr>
 				</thead>
