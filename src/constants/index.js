@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://54.252.196.150';
+export const BASE_URL = 'http://14.225.253.193';
 
 export function convertTime(time) {
 	const date = new Date(time);
