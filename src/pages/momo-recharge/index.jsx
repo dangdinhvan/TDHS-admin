@@ -1,7 +1,11 @@
 import './styles.css';
 import { Table } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+
+
 
 export default function MomoRecharge({ isMomo = true }) {
+const userInfo = useSelector(state => state.auth.userInfo);
 	return (
 		<div className='momo-recharge'>
 			<Table striped bordered hover responsive>
@@ -15,15 +19,15 @@ export default function MomoRecharge({ isMomo = true }) {
 				<tbody>
 					<tr>
 						<td>Nội dung chuyển khoản:</td>
-						<td>user nạp ngọc</td>
+						<td>{userInfo.user}</td>
 					</tr>
 					<tr>
 						<td>{isMomo ? 'Số điện thoại nhận tiền:' : 'Số tài khoản nhận tiền:'}</td>
-						<td>123456</td>
+						<td>0963225935</td>
 					</tr>
 					<tr>
 						<td>Chủ tài khoản:</td>
-						<td>admin</td>
+						<td>PHAN THỊ NGỌC HUYỀN</td>
 					</tr>
 				</tbody>
 			</Table>
@@ -31,7 +35,7 @@ export default function MomoRecharge({ isMomo = true }) {
 			<p>Lưu ý: Thời gian xử lý từ {isMomo ? '1-3' : '2-5'} phút</p>
 			<p>(*) Cần ghi đúng nội dung chuyển khoản</p>
 			<p>(*) Kiểm tra số điện thoại nhận tiền và chủ tài khoản</p>
-			<p>(***) Những thẻ bị điền sai thông tin chúng tôi sẽ không chịu trách nhiệm và không bồi thường.</p>
+			<p>(***) Những thẻ hoặc nội dung chuyển bị điền sai thông tin chúng tôi sẽ không chịu trách nhiệm và không bồi thường.</p>
 		</div>
 	);
 }

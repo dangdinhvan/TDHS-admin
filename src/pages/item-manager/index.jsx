@@ -77,7 +77,10 @@ export default function ItemManager() {
 			.delete(`${BASE_URL}/v1/webshops/${itemType}/${itemId}`, {
 				headers: { 'Authorization': `Bearer ${accessToken}` },
 			})
-			.then(() => toast.success('Xóa thành công'))
+			.then(() => {
+				toast.success('Xóa thành công');
+				getItems(currentPage, searchInputValue);
+			})
 			.catch(() => {
 				toast.error('Xóa thất bại');
 			})

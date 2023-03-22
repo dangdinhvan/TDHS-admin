@@ -32,6 +32,11 @@ export default function MyHistoryTransaction() {
 	const [currentPage4, setCurrentPage4] = useState(1);
 	const [sort4, setSort4] = useState('desc');
 
+	const [totalPageMoney, setTotalPageMoney] = useState(1);
+	const [historyBuyMoney, setHistoryBuyMoney] = useState([]);
+	const [currentPageMoney, setCurrentPageMoney] = useState(1);
+	const [loadingMoney, setLoadingMoney] = useState(true);
+
 	const userInfo = useSelector(state => state.auth.userInfo);
 
 	const accessToken = localStorage.getItem('accessToken');
@@ -61,6 +66,12 @@ export default function MyHistoryTransaction() {
 			getHistoryBankingTransaction(currentPage4);
 		}
 	}, [currentPage4, sort4]);
+
+	useEffect(() => {
+		if (accessToken) {
+			getHistoryBuyMoney(currentPage2);
+		}
+	}, [currentPageMoney, sort2]);
 
 	const getHistoryMomoTransaction = current => {
 		setLoading1(true);
@@ -140,6 +151,26 @@ export default function MyHistoryTransaction() {
 			})
 			.catch(error => console.log(error))
 			.finally(() => setLoading2(false));
+	};
+
+	const getHistoryBuyMoney = current => {
+		setLoadingMoney(true);
+		axios
+			.get(`${BASE_URL}/v1/webshops/listMoneyHistories`, {
+				params: {
+					userId: userInfo.id,
+					page: current,
+					limit: apiCallPerPage.current,
+					sortBy: `createdAt:${sort2}`,
+				},
+				headers: { 'Authorization': `Bearer ${accessToken}` },
+			})
+			.then(response => {
+				setHistoryBuyMoney(response.data.results);
+				setTotalPageMoney(response.data.totalPages);
+			})
+			.catch(error => console.log(error))
+			.finally(() => setLoadingMoney(false));
 	};
 
 	const generateItemType = type => {
@@ -306,7 +337,7 @@ export default function MyHistoryTransaction() {
 							</tr>
 						</thead>
 						<tbody>
-							{!!historyBankingData.length ? (
+							{historyBankingData.length ? (
 								historyBankingData.map((item, index) => (
 									<tr key={index}>
 										<td style={{ textAlign: 'center' }}>{index + 1}</td>
@@ -333,8 +364,6 @@ export default function MyHistoryTransaction() {
 				</>
 			)}
 
-			<hr />
-
 			<h3 style={{ margin: '32px 0' }}>Lịch sử mua vật phẩm</h3>
 			{loading2 ? (
 				<p style={{ textAlign: 'center' }}>Loading...</p>
@@ -345,8 +374,8 @@ export default function MyHistoryTransaction() {
 							<tr>
 								<th style={{ textAlign: 'center' }}>#</th>
 								<th style={{ textAlign: 'center' }}>Id</th>
-								<th style={{ textAlign: 'center' }}>User</th>
-								<th style={{ textAlign: 'center' }}>Player</th>
+								<th style={{ textAlign: 'center' }}>Tài khoản</th>
+								<th style={{ textAlign: 'center' }}>Nhân Vật</th>
 								<th style={{ textAlign: 'center' }}>Tên vật phẩm</th>
 								<th style={{ textAlign: 'center' }}>Loại vật phẩm</th>
 								<th style={{ textAlign: 'center' }}>Giá</th>
@@ -383,6 +412,58 @@ export default function MyHistoryTransaction() {
 							currentPage={currentPage2}
 							setCurrentPage={setCurrentPage2}
 							totalPage={totalPage2}
+						/>
+					)}
+				</>
+			)}
+			<h3 style={{ margin: '32px 0' }}>Lịch sử mua tiền game</h3>
+			{loadingMoney ? (
+				<p style={{ textAlign: 'center' }}>Loading...</p>
+			) : (
+				<>
+					<Table striped bordered responsive>
+						<thead>
+							<tr>
+								<th style={{ textAlign: 'center' }}>#</th>
+								<th style={{ textAlign: 'center' }}>Id</th>
+								<th style={{ textAlign: 'center' }}>Tài khoản</th>
+								<th style={{ textAlign: 'center' }}>Nhân Vật</th>
+								<th style={{ textAlign: 'center' }}>Tên vật phẩm</th>
+								<th style={{ textAlign: 'center' }}>Loại vật phẩm</th>
+								<th style={{ textAlign: 'center' }}>Giá</th>
+								<th style={{ textAlign: 'center' }}>Số lượng</th>
+								<th style={{ textAlign: 'center', cursor: 'pointer' }} onClick={changeSort2}>
+									Thời gian {sort2 === 'desc' ? <ArrowDown /> : <ArrowUp />}
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							{historyBuyMoney.length ? (
+								historyBuyMoney.map((item, index) => (
+									<tr key={index}>
+										<td style={{ textAlign: 'center' }}>{index + 1}</td>
+										<td style={{ textAlign: 'center' }}>{item.itemId}</td>
+										<td style={{ textAlign: 'center' }}>{item?.user}</td>
+										<td style={{ textAlign: 'center' }}>{item?.player}</td>
+										<td style={{ textAlign: 'center' }}>{item?.name}</td>
+										<td style={{ textAlign: 'center' }}>{generateItemType(item.typeItem)}</td>
+										<td style={{ textAlign: 'center' }}>{item.unitPrice}</td>
+										<td style={{ textAlign: 'center' }}>{item.quantity}</td>
+										<td style={{ textAlign: 'center' }}>{convertTime(item.createdAt)}</td>
+									</tr>
+								))
+							) : (
+								<tr style={{ textAlign: 'center' }}>
+									<td colSpan={9}>Chưa có giao dịch nào</td>
+								</tr>
+							)}
+						</tbody>
+					</Table>
+					{totalPageMoney > 1 && (
+						<PaginationComponent
+							currentPage={currentPageMoney}
+							setCurrentPage={setCurrentPageMoney}
+							totalPage={totalPageMoney}
 						/>
 					)}
 				</>

@@ -92,9 +92,11 @@ export default function Webshop() {
 			.post(`${BASE_URL}/v1/webshops/addItemToPlayer`, data, {
 				headers: { 'Authorization': `Bearer ${accessToken}` },
 			})
-			.then(response => toast.success('Mua thành công'))
+			.then(response => {
+				toast.success('Mua thành công');
+				setShowModal(false);
+			})
 			.catch(err => {
-				console.log(err);
 				if (err.response.status == 402) {
 					toast.error('Bạn không đủ tiền thanh toán');
 				} else {
