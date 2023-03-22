@@ -20,7 +20,7 @@ export default function Functions() {
 							<p>Thời gian thanh toán 1-3 phút</p>
 						</div>
 						<hr />
-						<button onClick={() => navigate('/momo-recharge')}>Nạp ngọc</button>
+						<button onClick={() => navigate('/momo-recharge')}>Nạp coin</button>
 					</div>
 				</div>
 				<div className='recharge__item'>
@@ -32,7 +32,7 @@ export default function Functions() {
 							<p>Thời gian thanh toán 2-5 phút</p>
 						</div>
 						<hr />
-						<button onClick={() => navigate('/mobile-recharge')}>Nạp ngọc</button>
+						<button onClick={() => navigate('/mobile-recharge')}>Nạp coin</button>
 					</div>
 				</div>
 				<div className='recharge__item'>
@@ -40,11 +40,10 @@ export default function Functions() {
 					<div className='recharge__item__text'>
 						<div className='recharge__item__title'>Banking</div>
 						<div className='recharge__item__description'>
-							<p>Chuyển tiền qua internet banking</p>
-							<p>Thời gian thanh toán 2-5 phút</p>
+							<p>Chuyển tiền qua internet banking tạm thời đang bảo trì</p>
 						</div>
 						<hr />
-						<button onClick={() => navigate('/banking')}>Nạp ngọc</button>
+						<button disabled onClick={() => navigate('/banking')}>Nạp coin</button>
 					</div>
 				</div>
 			</div>
