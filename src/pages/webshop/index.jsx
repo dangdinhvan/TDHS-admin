@@ -52,7 +52,7 @@ export default function Webshop() {
 
 	const getItems = async (currentPage, input) => {
 		setLoading(true);
-		let params = { page: currentPage, limit: apiCallPerPage.current };
+		let params = { page: currentPage, limit: apiCallPerPage.current, sortBy: 'itemId:acs' };
 
 		if (input) {
 			params = { ...params, name: input };
