@@ -29,7 +29,6 @@ export default function AllHistoryTransaction() {
 	const [currentPage3, setCurrentPage3] = useState(1);
 	const [sort3, setSort3] = useState('desc');
 
-
 	const [historyBankingData, setHistoryBankingData] = useState([]);
 	const [loading4, setLoading4] = useState(true);
 	const [totalPage4, setTotalPage4] = useState(1);
@@ -69,7 +68,6 @@ export default function AllHistoryTransaction() {
 		}
 	}, [currentPageMoney, sort2]);
 
-	
 	const getHistoryMomoTransaction = current => {
 		setLoading1(true);
 		axios
@@ -225,7 +223,9 @@ export default function AllHistoryTransaction() {
 						<thead>
 							<tr>
 								<th style={{ textAlign: 'center' }}>#</th>
+								<th style={{ textAlign: 'center' }}>Tài khoản</th>
 								<th style={{ textAlign: 'center' }}>Mã giao dịch</th>
+								<th style={{ textAlign: 'center' }}>Số tiền</th>
 								<th style={{ textAlign: 'center' }}>Trạng thái</th>
 								<th style={{ textAlign: 'center', cursor: 'pointer' }} onClick={changeSort2}>
 									Thời gian {sort2 === 'desc' ? <ArrowDown /> : <ArrowUp />}
@@ -237,7 +237,9 @@ export default function AllHistoryTransaction() {
 								historyMomoData.map((item, index) => (
 									<tr key={index}>
 										<td style={{ textAlign: 'center' }}>{index + 1}</td>
+										<td style={{ textAlign: 'center' }}>{item.user}</td>
 										<td style={{ textAlign: 'center' }}>{item.requestId}</td>
+										<td style={{ textAlign: 'center' }}>{item.amount}</td>
 										<td style={{ textAlign: 'center' }}>{item.status}</td>
 										<td style={{ textAlign: 'center' }}>{convertTime(item.createdAt)}</td>
 									</tr>

@@ -2,8 +2,6 @@ import './styles.css';
 import { Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
-
-
 export default function MomoRecharge({ isMomo = true }) {
 const userInfo = useSelector(state => state.auth.userInfo);
 	return (

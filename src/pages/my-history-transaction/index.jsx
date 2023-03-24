@@ -231,6 +231,7 @@ export default function MyHistoryTransaction() {
 							<tr>
 								<th style={{ textAlign: 'center' }}>#</th>
 								<th style={{ textAlign: 'center' }}>Mã giao dịch</th>
+								<th style={{ textAlign: 'center' }}>Số tiền</th>
 								<th style={{ textAlign: 'center' }}>Trạng thái</th>
 								<th style={{ textAlign: 'center', cursor: 'pointer' }} onClick={changeSort2}>
 									Thời gian {sort2 === 'desc' ? <ArrowDown /> : <ArrowUp />}
@@ -243,6 +244,7 @@ export default function MyHistoryTransaction() {
 									<tr key={index}>
 										<td style={{ textAlign: 'center' }}>{index + 1}</td>
 										<td style={{ textAlign: 'center' }}>{item.requestId}</td>
+										<td style={{ textAlign: 'center' }}>{item.amount}</td>
 										<td style={{ textAlign: 'center' }}>{item.status}</td>
 										<td style={{ textAlign: 'center' }}>{convertTime(item.createdAt)}</td>
 									</tr>
