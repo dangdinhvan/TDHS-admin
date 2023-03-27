@@ -136,7 +136,7 @@ export default function MyHistoryTransaction() {
 	const getHistoryBuyItem = current => {
 		setLoading2(true);
 		axios
-			.get(`${BASE_URL}/v1/webshops/listHistories`, {
+			.get(`${BASE_URL}/v1/webshops/listItemHistories`, {
 				params: {
 					page: current,
 					limit: apiCallPerPage.current,
