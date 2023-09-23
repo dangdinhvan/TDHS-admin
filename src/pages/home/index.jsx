@@ -5,9 +5,9 @@ export default function Home() {
 	return (
 		<div className='home'>
 			<img src={homeBanner} />
-			<h3>CHÀO MỪNG CÁC HIỆP SĨ ĐÃ ĐẾN VỚI SEVER RAZE</h3>
+			<h3>CHÀO MỪNG CÁC HIỆP SĨ ĐÃ ĐẾN VỚI SEVER HIỆP SĨ TÍ HON</h3>
 			<div className='home-content'>
-				<b>- SERVER NÀY DO ĐỘI NGŨ RAZE PHÁT TRIỂN VÀ VẬN HÀNH!</b>
+				<b>- SERVER NÀY DO ĐỘI NGŨ HIỆP SĨ TÍ HON PHÁT TRIỂN VÀ VẬN HÀNH!</b>
 				<p>- Server này có nhiều chức năng mới lạ cũng như lượng tài nguyên đủ để anh em sử dụng.</p>
 				<p>- Server nhiều item mới lạ sẽ sớm được cập nhật nếu đông đảo người chơi có nhu cầu!</p>
 				<br />

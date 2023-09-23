@@ -64,7 +64,7 @@ function Header() {
 	return (
 		<div className='header'>
 			<Link to='/' className='header-logo'>
-				HSO RAZE
+				HIỆP SĨ TÍ HON
 			</Link>
 			<ul className='header-menu'>
 				<li className='header-item'>
