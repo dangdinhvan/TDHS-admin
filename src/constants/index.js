@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://14.225.253.193';
+export const BASE_URL = 'https://hiepsitihon.xyz:3000:w';
 
 export function convertTime(time) {
 	const date = new Date(time);
